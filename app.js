@@ -3,7 +3,7 @@ require('dotenv').config();
 const mongoose = require('mongoose');
 
 const {PORT, MONGO_URL} = require("./config/config");
-const {positionsRouter} = require("./routes");
+const {positionsRouter, applicantsRouter} = require("./routes");
 
 const {mainHandler} = require("./errors");
 
@@ -14,6 +14,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
 app.use('/positions', positionsRouter);
+app.use('/applicants', applicantsRouter);
 
 app.use ('*', (req, res, next)=> {
     next (new Error('Rout not found'))

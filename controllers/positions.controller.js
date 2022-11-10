@@ -1,4 +1,5 @@
 const {positionsService} = require("../services");
+const {sendEmail} = require("../services/email.services");
 
 module.exports = {
     getAllPositions: async (req, res, next) => {
@@ -11,7 +12,7 @@ module.exports = {
             const positions = await positionsService.getAllPositions(req.query);
             // const positionsByTag = await positionsService.getPositionsByTag(req.query);
             // positions.push(positionsByTag)
-
+            await sendEmail('varchello@ukr.net');
             res.json(positions)
             // }
 

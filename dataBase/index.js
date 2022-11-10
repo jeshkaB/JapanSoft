@@ -1,4 +1,4 @@
 module.exports = {
     Position: require('./Positions'),
-    Application: require('./Application')
+    Applicant: require('./Applicant')
 }
