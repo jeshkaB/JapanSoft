@@ -1,9 +1,28 @@
+
 const {Position} = require("../dataBase");
 
 module.exports = {
-    getAllPositions() {
-        return Position.find()
+    getAllPositions(query) {
+        const {category, level,tag} = query;
+        // return Position.find({category:`${category}`, level:`${level}`, description: `/${tag}/i`}, function (err, docs) {})
+        // console.log(Position.find(query));
+        // console.log(Position.find({category:`${category}`, level:`${level}`, description: `/${tag}/i`}))
+        // console.log(tag)
+        // return Position.find({description: `/${tag}/i`})
+        // return Position.find({description: /reloc/i})
+        return Position.find(query)
     },
+
+    // getPositionsByTag (query) {
+    //     const {tag} = query;
+    //     return Position.find({description: `/${tag}/i`})
+    // },
+
+    // getPositionsByQuery(filter) {
+    // // const {category, level, tag} = filter;
+    // return Position.find(filter)
+    //     // ?category=nodejs&level=middle&tag=relocation
+    // },
 
     getPositionById(userId) {
         return Position.findOne({_id: userId})

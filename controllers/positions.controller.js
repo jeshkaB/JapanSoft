@@ -3,9 +3,18 @@ const {positionsService} = require("../services");
 module.exports = {
     getAllPositions: async (req, res, next) => {
         try {
-            const positions = await positionsService.getAllPositions();
+            // if (JSON.stringify(req.query)!=='{}') {
+            // const positions = await positionsService.getPositionsByQuery(req.query);
+            // res.json(positions)
+            // }
+            // else {
+            const positions = await positionsService.getAllPositions(req.query);
+            // const positionsByTag = await positionsService.getPositionsByTag(req.query);
+            // positions.push(positionsByTag)
 
             res.json(positions)
+            // }
+
         } catch (e) {
             next(e)
         }
@@ -41,7 +50,8 @@ module.exports = {
 
             const position = await positionsService.updatePositionById(userId, req.body);
 
-            res.json(position)
+            res.json()
+
         } catch (e) {
             next(e)
         }

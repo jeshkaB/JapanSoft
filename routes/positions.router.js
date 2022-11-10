@@ -10,10 +10,10 @@ positionsRouter.get('/', positionsController.getAllPositions);
 
 positionsRouter.post('/', positionMiddleware.checkIsPositionBodyValid, positionsController.createPosition);
 
-positionsRouter.get('/:userID', positionsController.getPositionById);
+positionsRouter.get('/:userId', positionsController.getPositionById);
 
-positionsRouter.delete('/:userID', positionsController.deletePositionById);
+positionsRouter.delete('/:userId', positionsController.deletePositionById);
 
-positionsRouter.patch('/:userID', positionsController.updatePositionById);
+positionsRouter.patch('/:userId', positionsController.updatePositionById);
 
 module.exports = positionsRouter
